@@ -1,2 +1,29 @@
 ---
-# tasks file for ansible-role-fiddler
+
+- name: add apt signing keys for Ubuntu 16.04
+  apt_key:
+    keyserver: keyserver.ubuntu.com
+    id: 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+
+- name: add apt repositories https://download.mono-project.com/repo/ubuntu
+  apt_repository:
+    repo: deb https://download.mono-project.com/repo/ubuntu stable-xenial main
+
+- name: install packages
+  package:
+    name: mono-devel
+
+#- name: Run /usr/lib/mono//mozroots --import --sync
+#  command: /usr/lib/mono//mozroots --import --sync
+
+- file:
+    path: "{{ fiddler_install_dir }}"
+    state: directory
+    mode: 0755
+    recurse: yes
+
+- name: Unarchive fiddler
+  unarchive:
+    src: "{{ fiddler_install_source }}"
+    dest: "{{ fiddler_install_dir }}"
+    remote_src: yes
