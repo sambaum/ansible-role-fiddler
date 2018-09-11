@@ -1,3 +1,5 @@
 ---
 fiddler_install_dir: /opt/fiddler
 fiddler_install_source: http://telerik-fiddler.s3.amazonaws.com/fiddler/fiddler-linux.zip
+fiddler_install_dir_owner: root
+fiddler_install_dir_group: root
