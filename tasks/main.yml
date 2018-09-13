@@ -13,9 +13,6 @@
   package:
     name: mono-devel
 
-#- name: Run /usr/lib/mono//mozroots --import --sync
-#  command: /usr/lib/mono//mozroots --import --sync
-
 - file:
     path: "{{ fiddler_install_dir }}"
     state: directory
