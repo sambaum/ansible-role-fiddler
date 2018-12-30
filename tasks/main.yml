@@ -24,3 +24,5 @@
     src: "{{ fiddler_install_source }}"
     dest: "{{ fiddler_install_dir }}"
     remote_src: yes
+    owner: "{{ fiddler_install_dir_owner }}"
+    group: "{{ fiddler_install_dir_group }}"
